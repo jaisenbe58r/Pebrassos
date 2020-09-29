@@ -52,6 +52,9 @@ def post_form():
     if form.validate_on_submit():
         title = form.title.data
         content = form.content.data
+        loc = form.loc.data
+        state = form.state.data
+        date = form.date.data
         file = form.post_image.data
         image_name = None
         # Comprueba si se ha subido un fichero
@@ -61,7 +64,8 @@ def post_form():
             os.makedirs(images_dir, exist_ok=True)
             file_path = os.path.join(images_dir, image_name)
             file.save(file_path)
-        post = Post(user_id=current_user.id, title=title, content=content)
+        post = Post(user_id=current_user.id, title=title, content=content, loc=loc,
+                    date=date, state=state)
         post.image_name = image_name
         post.save()
         logger.info(f'Guardando nuevo post {title}')

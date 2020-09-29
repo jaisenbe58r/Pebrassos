@@ -17,6 +17,7 @@ import logging
 from flask import abort, render_template, redirect, url_for, request, current_app
 from flask_login import current_user
 
+import os
 import pandas as pd
 import numpy as np
 import folium
@@ -53,7 +54,11 @@ def map():
                        radius=20, blur=4,
                        max_zoom=100)
     map.add_child(heatMap)
-    return map._repr_html_()
+    # map.save('map.html')
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    map.save(os.path.join(dir_path, "map_html"))
+
+    return render_template('index_map.html')
 
 @public_bp.route("/p/<string:slug>/", methods=['GET', 'POST'])
 def show_post(slug):
