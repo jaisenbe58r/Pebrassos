@@ -1,25 +1,11 @@
-"""
-//===========================================================================
-// JAIME SENDRA BERENGUER
-// TECH TRAININGS - MACHINE LEARNING
-//-----------------------------------------------------------------------------
-// Autor: JS 
-// Revisado: JS 
-//-----------------------------------------------------------------------------
-// Library:       -
-// Tested with:   CPU CORE i7 16Gb
-// Engineering:   -
-// Restrictions:  -
-// Requirements:  Python 3.8
-// Functionality: Model
-// 
-//-----------------------------------------------------------------------------
-// Change log table:
-//
-// Version Date           In charge       Changes applied
-// 01.00.00 22/09/2020     JS              First released version
-//
-//===========================================================================
+"""Copyright (c) 2020 Jaime Sendra Berenguer & Carlos Mahiques Ballester
+
+Pebrassos - Machine Learning Library Extensions
+
+Author:Jaime Sendra Berenguer & Carlos Mahiques Ballester  
+<www.linkedin.com/in/jaisenbe>
+
+License: MIT
 """
 
 from keras.layers import Input, Embedding, Dense, Flatten, Dropout, concatenate, LSTM

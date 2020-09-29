@@ -1,6 +1,6 @@
 """
 //===========================================================================
-// JAIME SENDRA BERENGUER
+// Jaime Sendra Berenguer & Carlos Mahiques Ballester
 // TECH TRAININGS - MACHINE LEARNING
 //-----------------------------------------------------------------------------
 // Autor: JS 

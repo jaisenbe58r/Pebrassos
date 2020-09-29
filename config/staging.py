@@ -1,11 +1,11 @@
-"""
-AUTOR: JAIME sENDRA
+"""Copyright (c) 2020 Jaime Sendra Berenguer & Carlos Mahiques Ballester
 
-https://j2logo.com/tutorial-flask-leccion-17-desplegar-flask-produccion-nginx-gunicorn/
+Pebrassos - Machine Learning Library Extensions
 
+Author:Jaime Sendra Berenguer & Carlos Mahiques Ballester  
+<www.linkedin.com/in/jaisenbe>
 
-FECHA DE CREACIÓN: 08/07/2019
-
+License: MIT
 """
 
 from .default import *
@@ -13,4 +13,5 @@ from .default import *
 
 APP_ENV = APP_ENV_STAGING
 
-SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://admin:1234@localhost:3307/mminiblog'
+SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://admin:1234@localhost:3307/Pebrassos'
+
