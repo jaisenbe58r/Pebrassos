@@ -17,6 +17,11 @@ import logging
 from flask import abort, render_template, redirect, url_for, request, current_app
 from flask_login import current_user
 
+import pandas as pd
+import numpy as np
+import folium
+from folium.plugins import HeatMap
+
 from app.models import Post, Comment
 from . import public_bp
 from .forms import CommentForm
@@ -32,6 +37,23 @@ def index():
     post_pagination = Post.all_paginated(page, per_page)
     return render_template("public/index.html", post_pagination=post_pagination)
 
+
+@public_bp.route("/maps")
+def map():
+    # Read the data from the remote resource as DataFrame
+    df = pd.read_csv("data/pueblos.csv", sep=";")
+    # Calculate approximated center point for our map view
+    center = [np.mean(df.Latitud.values), np.mean(df.Longitud.values)]
+    # Setup our map
+    map = folium.Map(location=center, zoom_start=6)
+    # Setup our heatmap layer
+    heatMap = HeatMap(zip(df.Latitud.values, df.Longitud.values),
+                       min_opacity=0.1,
+                       max_val=5,
+                       radius=20, blur=4,
+                       max_zoom=100)
+    map.add_child(heatMap)
+    return map._repr_html_()
 
 @public_bp.route("/p/<string:slug>/", methods=['GET', 'POST'])
 def show_post(slug):

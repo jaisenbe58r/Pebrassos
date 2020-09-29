@@ -15,6 +15,8 @@
             <li><a href="{{ url_for('auth.show_signup_form') }}">Registrar</a></li>
         {% else %}
             <li>{{ current_user.name }}</li>
+            <li> | </li>
+            <li><a href="{{ url_for('public.map') }}">Map</a></li>
             {% if current_user.is_admin %}
                 <li> | </li>
                 <li><a href="{{ url_for('admin.index') }}">Admin</a></li>
@@ -22,6 +24,7 @@
             <li> | </li>
             <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
         {% endif %}
+        
     </ul>
 </div>
 {% block content %}{% endblock %}

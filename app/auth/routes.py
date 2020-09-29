@@ -44,11 +44,11 @@ def show_signup_form():
             user.set_password(password)
             user.save()
             # Enviamos un email de bienvenida
-            send_email(subject='Bienvenid@ al miniblog',
+            send_email(subject='Bienvenid@ al Pebrassos',
                        sender=current_app.config['DONT_REPLY_FROM_EMAIL'],
                        recipients=[email, ],
-                       text_body=f'Hola {name}, bienvenid@ al miniblog de Flask',
-                       html_body=f'<p>Hola <strong>{name}</strong>, bienvenid@ al miniblog de Flask</p>')
+                       text_body=f'Hola {name}, bienvenid@ al Pebrassos de Flask',
+                       html_body=f'<p>Hola <strong>{name}</strong>, bienvenid@ al Pebrassos de Flask</p>')
             # Dejamos al usuario logueado
             login_user(user, remember=True)
             next_page = request.args.get('next', None)

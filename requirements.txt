@@ -1,12 +1,35 @@
-# General
-Flask
+# Flask
+alembic==1.3.2
+blinker==1.4
+Click==7.0
+Flask==1.1.1
+Flask-Login==0.4.1
+Flask-Mail==0.9.1
+Flask-Migrate==2.5.2
+Flask-SQLAlchemy==2.4.1
+Flask-WTF==0.14.2
+itsdangerous==1.1.0
+Jinja2==2.10.3
+Mako==1.1.0
+MarkupSafe==1.1.1
+psycopg2==2.8.4
+python-dateutil==2.8.1
+python-editor==1.0.4
+python-slugify==4.0.0
+six==1.13.0
+SQLAlchemy==1.3.12
+text-unidecode==1.3
+Werkzeug==0.16.0
+WTForms==2.2.1
+mysql-connector-python==8.0.21
+
 
 # Frameworks
 scikit-learn==0.22.2
 matplotlib==3.1.1
-pandas==0.25.0
-numpy
-seaborn
+pandas==1.13.0
+numpy==1.19.2
+folium==0.11.0
 
 # testing
 pytest>=4.6.6,<5.0.0
