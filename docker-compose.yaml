@@ -1,0 +1,8 @@
+
+version: "3"
+
+services:
+  ml-fastapi-model:
+    build: .
+    ports:
+      - "$PORT:$PORT" 

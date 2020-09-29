@@ -1,0 +1,9 @@
+
+version: "3"
+
+services:
+  ml-fastapi-model:
+    build: .
+    ports:
+      - 8000:8000
+    entrypoint: ["pytest"]

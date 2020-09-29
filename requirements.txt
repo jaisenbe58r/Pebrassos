@@ -1,0 +1,22 @@
+# General
+Flask
+
+# Frameworks
+scikit-learn==0.22.2
+matplotlib==3.1.1
+pandas==0.25.0
+numpy
+seaborn
+
+# testing
+pytest>=4.6.6,<5.0.0
+pytest-cov
+codacy-coverage
+
+#concept
+flask-googlemaps==0.4.0
+
+# doc
+mkdocs
+
+
