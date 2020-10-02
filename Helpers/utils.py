@@ -1,30 +1,17 @@
-"""
-//===========================================================================
-// Jaime Sendra Berenguer & Carlos Mahiques Ballester
-// TECH TRAININGS - MACHINE LEARNING
-//-----------------------------------------------------------------------------
-// Autor: JS 
-// Revisado: JS 
-//-----------------------------------------------------------------------------
-// Library:       -
-// Tested with:   CPU CORE i7 16Gb
-// Engineering:   -
-// Restrictions:  -
-// Requirements:  Python 3.8
-// Functionality: Utils
-// 
-//-----------------------------------------------------------------------------
-// Change log table:
-//
-// Version Date           In charge       Changes applied
-// 01.00.00 22/09/2020     JS              First released version
-//
-//===========================================================================
+"""Copyright (c) 2020 Jaime Sendra Berenguer & Carlos Mahiques Ballester
+
+Pebrassos - Machine Learning Library Extensions
+
+Author:Jaime Sendra Berenguer & Carlos Mahiques Ballester  
+<www.linkedin.com/in/jaisenbe>
+
+License: MIT
 """
 import pandas as pd
 import numpy as np
-from keras.models import Sequential
-from keras.layers import Dense,Activation,Flatten
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense,Activation,Flatten
 from sklearn.preprocessing import MinMaxScaler
 
 import pickle
@@ -33,13 +20,13 @@ EPOCHS=40
 PASOS=7
 
 def save_object(filename, object):
-	with open(''+filename, 'wb') as file:
-		pickle.dump(object, file)
+    with open(''+filename, 'wb') as file:
+        pickle.dump(object, file)
 
 def load_object(filename):
-	with open(''+filename ,'rb') as f:
-		loaded = pickle.load(f)
-	return loaded
+    with open(''+filename ,'rb') as f:
+        loaded = pickle.load(f)
+    return loaded
 
 # convert series to supervised learning
 def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
@@ -116,24 +103,24 @@ def load_data(PASOS):
 
 
 def transformar(df, scaler):
-	# cargar valpres
-	values = df['unidades'].values
-	# pasar a tipo float
-	values = values.astype('float32')
-	# normalizar features
-	values = values.reshape(-1, 1) # esto lo hacemos porque tenemos 1 sola dimension
-	scaled = scaler.fit_transform(values)
+    # cargar valpres
+    values = df['unidades'].values
+    # pasar a tipo float
+    values = values.astype('float32')
+    # normalizar features
+    values = values.reshape(-1, 1) # esto lo hacemos porque tenemos 1 sola dimension
+    scaled = scaler.fit_transform(values)
 
-	reframed = series_to_supervised(scaled, PASOS, 1)
-	reframed.reset_index(inplace=True, drop=True)
+    reframed = series_to_supervised(scaled, PASOS, 1)
+    reframed.reset_index(inplace=True, drop=True)
 
-	contador=0
-	reframed['weekday']=df['weekday']
-	reframed['month']=df['month']
+    contador=0
+    reframed['weekday']=df['weekday']
+    reframed['month']=df['month']
 
-	for i in range(reframed.index[0], reframed.index[-1]):
-		reframed['weekday'].loc[contador]=df['weekday'][i+8]
-		reframed['month'].loc[contador]=df['month'][i+8]
-		contador=contador+1
-	#print(reframed.head())
-	return reframed
+    for i in range(reframed.index[0], reframed.index[-1]):
+        reframed['weekday'].loc[contador]=df['weekday'][i+8]
+        reframed['month'].loc[contador]=df['month'][i+8]
+        contador=contador+1
+    #print(reframed.head())
+    return reframed
