@@ -9,6 +9,13 @@ services:
       - FLASK_APP="entrypoint"
       - FLASK_ENV="production"
       - APP_SETTINGS_MODULE=config.prod
+
+      - MYSQL_USER= "admin"
+      - PASSWORD= "1234"
+      - HOST= "localhost"
+      - DATABASE= "Pebrassos"
+      - PORT= "3308"
+
     expose:
       - 8081
   nginx:
@@ -21,7 +28,7 @@ services:
     container_name: db-pebrassos
     image: mysql:5.7
     ports:
-      - "32001:3306"
+      - "32001:3308"
     environment:
       MYSQL_ROOT_PASSWORD: root
     volumes:
