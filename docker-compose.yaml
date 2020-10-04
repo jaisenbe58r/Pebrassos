@@ -11,10 +11,10 @@ services:
       - APP_SETTINGS_MODULE=config.prod
 
       - MYSQL_USER= "admin"
-      - PASSWORD= "1234"
-      - HOST= "localhost"
-      - DATABASE= "Pebrassos"
-      - PORT= "3308"
+      - MYSQL_PASSWORD= "1234"
+      - MYSQL_HOST= "localhost"
+      - MYSQL_DATABASE= "Pebrassos"
+      - MYSQL_PORT= "3308"
 
     expose:
       - 8081
