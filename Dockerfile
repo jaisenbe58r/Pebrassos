@@ -1,7 +1,7 @@
 # Dockerfile-flask
 # We simply inherit the Python 3 image. This image does
 # not particularly care what OS runs underneath
-FROM python:3
+FROM python:3.8
 RUN apt -qq -y update \
 	&& apt -qq -y upgrade
 RUN python -m pip install --upgrade pip
