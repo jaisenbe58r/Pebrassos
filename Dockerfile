@@ -5,6 +5,7 @@ FROM python:3
 RUN apt -qq -y update \
 	&& apt -qq -y upgrade
 RUN python -m pip install --upgrade pip
+RUN pip install uWSGI
 # Set an environment variable with the directory
 # where we'll be running the app
 ENV APP /app
