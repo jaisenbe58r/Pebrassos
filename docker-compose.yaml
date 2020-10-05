@@ -82,9 +82,9 @@ services:
     depends_on:
       # build those images first
       - mysql
-    ports:
-      # bind on our 5000 port because most people have 80, 8080 already bound
-      - "5000:5000"
+    # ports:
+    #   # bind on our 5000 port because most people have 80, 8080 already bound
+    #   - "5000:5000"
 
   nginx:
     container_name: nginx-pebrassos
