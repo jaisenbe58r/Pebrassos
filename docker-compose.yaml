@@ -49,7 +49,7 @@ services:
 
   phpmyadmin:
     depends_on:
-      - mysql
+      - db
     image: phpmyadmin/phpmyadmin:latest
     container_name: flask_phpmyadmin
     restart: unless-stopped
