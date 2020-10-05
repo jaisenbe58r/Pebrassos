@@ -14,7 +14,7 @@ services:
       - MYSQL_PASSWORD= "1234"
       - MYSQL_HOST= "localhost"
       - MYSQL_DATABASE= "Pebrassos"
-      - MYSQL_PORT= "3308"
+      - MYSQL_PORT=3308
 
       - KEY_OWM='16247b8439d1a62601d38844971ccccc'
 
