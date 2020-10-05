@@ -75,7 +75,7 @@ services:
       MYSQL_USER: flask
       MYSQL_PASSWORD: slimdingo85
       MYSQL_HOST: mysql
-      MYSQL_DATABASE: Pebrassos
+      MYSQL_DATABASE: flask
       MYSQL_PORT: 3306
 
 
@@ -117,7 +117,7 @@ services:
     environment:
       # credentials
       MYSQL_ROOT_PASSWORD: slimdingo85
-      MYSQL_DATABASE: Pebrassos
+      MYSQL_DATABASE: flask
       MYSQL_USER: flask
       MYSQL_PASSWORD: slimdingo85
 
