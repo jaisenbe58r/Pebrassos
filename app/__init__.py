@@ -22,11 +22,23 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
 from app.common.filters import format_datetime
+from datetime import datetime
+
+
+# import BackgroundScheduler
+from apscheduler.schedulers.background import BackgroundScheduler
+
+logger = logging.getLogger(__name__)
 
 login_manager = LoginManager()
 db = SQLAlchemy()
 migrate = Migrate()
 mail = Mail()
+
+
+# define the job
+def hello_job():
+    logger.info('Hello Job! The time is: %s' % datetime.now())
 
 
 def create_app(settings_module):
@@ -61,10 +73,25 @@ def create_app(settings_module):
     from .public import public_bp
     app.register_blueprint(public_bp)
 
+    from .meteo import meteo_bp
+    app.register_blueprint(meteo_bp)
+
     # Custom error handlers
     register_error_handlers(app)
 
-    return app
+    # init BackgroundScheduler job
+    scheduler = BackgroundScheduler()
+    # in your case you could change seconds to hours
+    from .meteo.api_meteo import scheduler_db
+    scheduler.add_job(hello_job, trigger='interval', seconds=50)
+    # scheduler.start()
+
+    try:
+        # To keep the main thread alive
+        return app
+    except:
+        # shutdown if app occurs except
+        scheduler.shutdown()
 
 
 def register_filters(app):
