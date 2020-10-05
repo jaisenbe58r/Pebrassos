@@ -107,6 +107,7 @@ services:
     image: mysql:5.7
     volumes:
         # pass volume named mysql-data to mysql container
+      - ./db:/docker-entrypoint-initdb.d/:ro
       - mysql-data:/var/lib/mysql
     restart: unless-stopped
     labels:
