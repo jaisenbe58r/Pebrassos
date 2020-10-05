@@ -63,3 +63,8 @@ services:
       PMA_USER: flask
       PMA_PASSWORD: slimdingo85
       MYSQL_ROOT_PASSWORD: slimdingo85
+
+volumes:
+  # just a persistance data
+  mysql-data:
+    driver: local
