@@ -35,6 +35,8 @@ db = SQLAlchemy()
 migrate = Migrate()
 mail = Mail()
 
+db.create_all()
+
 
 # define the job
 def hello_job():
