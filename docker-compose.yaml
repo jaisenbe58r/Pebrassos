@@ -45,7 +45,7 @@ services:
     expose:
       - 8081
     image: oceanize/flask_app:latest
-    container_name: flask_app
+    container_name: flask_app1
     restart: unless-stopped
     labels:
       project: "flask"
