@@ -35,8 +35,6 @@ db = SQLAlchemy()
 migrate = Migrate()
 mail = Mail()
 
-db.create_all()
-
 
 # define the job
 def hello_job():
@@ -58,6 +56,8 @@ def create_app(settings_module):
     login_manager.init_app(app)
     login_manager.login_view = "auth.login"
 
+    
+    db.create_all()
     db.init_app(app)
     migrate.init_app(app, db)
     mail.init_app(app)
