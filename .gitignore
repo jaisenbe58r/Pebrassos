@@ -2,7 +2,11 @@
 .vscode/
 
 # DATA
-data/*
+data/DatosEstaciones - 2020-08/*
+data/Columnas-Unidades.txt
+data/ListadoEstaciones_v04.xlsm
+data/ListadoEstaciones.csv
+data/pueblos.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
