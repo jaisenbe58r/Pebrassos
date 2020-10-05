@@ -42,6 +42,8 @@
 version: '3'
 services:
   app:
+    expose:
+      - 8081
     image: oceanize/flask_app:latest
     container_name: flask_app
     restart: unless-stopped
