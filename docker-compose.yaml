@@ -75,7 +75,7 @@ services:
       - KEY_OWM='16247b8439d1a62601d38844971ccccc'
 
     volumes:
-      - ./app:/app
+      - .:/app
     links:
       # network connection with these services
       - mysql
