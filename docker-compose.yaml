@@ -11,7 +11,7 @@ services:
       - APP_SETTINGS_MODULE=config.prod
 
       - MYSQL_USER= "admin"
-      - MYSQL_PASSWORD= "1234"
+      - MYSQL_PASSWORD= "1234
       - MYSQL_HOST= "localhost"
       - MYSQL_DATABASE= "Pebrassos"
       - MYSQL_PORT=3308
@@ -26,6 +26,16 @@ services:
     restart: always
     ports:
       - "8005:80"
+  # db:
+  #   container_name: db-pebrassos
+  #   image: mysql:5.7
+  #   ports:
+  #     - "32001:3308"
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #   volumes:
+  #     - ./db:/docker-entrypoint-initdb.d/:ro
+
   db:
     container_name: db-pebrassos
     image: mysql:5.7
@@ -35,3 +45,21 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
+      - mysql-data:/var/lib/mysql
+
+  phpmyadmin:
+    depends_on:
+      - mysql
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: flask_phpmyadmin
+    restart: unless-stopped
+    labels:
+      project: "flask"
+      day: "9 Sep 2019"
+    ports:
+      - "5010:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: flask
+      PMA_PASSWORD: slimdingo85
+      MYSQL_ROOT_PASSWORD: slimdingo85
