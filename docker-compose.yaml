@@ -117,7 +117,7 @@ services:
     environment:
       # credentials
       MYSQL_ROOT_PASSWORD: slimdingo85
-      MYSQL_DATABASE: flask
+      MYSQL_DATABASE: Pebrassos
       MYSQL_USER: flask
       MYSQL_PASSWORD: slimdingo85
 
