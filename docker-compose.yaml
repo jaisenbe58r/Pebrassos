@@ -56,23 +56,23 @@ services:
       dockerfile: Dockerfile
     environment:
       # set database, memcached etc credentials
-      # DB_HOST: mysql
-      # DB_NAME: flask
-      # DB_USER: flask
-      # DB_PASSWORD: slimdingo85
+      DB_HOST: mysql
+      DB_NAME: Pebrassos
+      DB_USER: flask
+      DB_PASSWORD: slimdingo85
 
-      - APP_NAME=MyFlaskApp
-      - FLASK_APP=entrypoint
-      - FLASK_ENV=production
-      - APP_SETTINGS_MODULE=config.prod
+      # - APP_NAME=MyFlaskApp
+      # - FLASK_APP=entrypoint
+      # - FLASK_ENV=production
+      # - APP_SETTINGS_MODULE=config.prod
 
-      - MYSQL_USER= admin
-      - MYSQL_PASSWORD= 1234
-      - MYSQL_HOST= mysql
-      - MYSQL_DATABASE= Pebrassos
-      - MYSQL_PORT=3306
+      # - MYSQL_USER= admin
+      # - MYSQL_PASSWORD= 1234
+      # - MYSQL_HOST= mysql
+      # - MYSQL_DATABASE= Pebrassos
+      # - MYSQL_PORT=3306
 
-      - KEY_OWM=16247b8439d1a62601d38844971ccccc
+      KEY_OWM: 16247b8439d1a62601d38844971ccccc
 
     volumes:
       - .:/app
