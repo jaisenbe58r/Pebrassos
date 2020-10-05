@@ -62,17 +62,17 @@ services:
       # DB_PASSWORD: slimdingo85
 
       - APP_NAME=MyFlaskApp
-      - FLASK_APP="entrypoint"
-      - FLASK_ENV="production"
+      - FLASK_APP=entrypoint
+      - FLASK_ENV=production
       - APP_SETTINGS_MODULE=config.prod
 
-      - MYSQL_USER= "admin"
-      - MYSQL_PASSWORD= "1234
-      - MYSQL_HOST= "mysql"
-      - MYSQL_DATABASE= "Pebrassos"
+      - MYSQL_USER= admin
+      - MYSQL_PASSWORD= 1234
+      - MYSQL_HOST= mysql
+      - MYSQL_DATABASE= Pebrassos
       - MYSQL_PORT=3306
 
-      - KEY_OWM='16247b8439d1a62601d38844971ccccc'
+      - KEY_OWM=16247b8439d1a62601d38844971ccccc
 
     volumes:
       - .:/app
