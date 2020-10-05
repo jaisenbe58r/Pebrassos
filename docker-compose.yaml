@@ -61,10 +61,10 @@ services:
       DB_USER: flask
       DB_PASSWORD: slimdingo85
 
-      # - APP_NAME=MyFlaskApp
-      # - FLASK_APP=entrypoint
-      # - FLASK_ENV=production
-      # - APP_SETTINGS_MODULE=config.prod
+      APP_NAME: MyFlaskApp
+      FLASK_APP: entrypoint
+      FLASK_ENV: production
+      APP_SETTINGS_MODULE: config.prod
 
       # - MYSQL_USER= admin
       # - MYSQL_PASSWORD= 1234
