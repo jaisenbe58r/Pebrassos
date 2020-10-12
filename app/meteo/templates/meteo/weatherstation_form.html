@@ -1,0 +1,65 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+    {% if form.station_id.data %}
+        {{ form.station_id.data }}
+    {% else %}
+        Nueva estación metereológica
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post" enctype="multipart/form-data" novalidate>
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.station_id.label }}
+            {{ form.station_id(size=8) }}<br>
+            {% for error in form.station_id.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.municipio.label }}
+            {{ form.municipio(size=80) }}<br>
+            {% for error in form.municipio.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.provincia.label }}
+            {{ form.provincia(size=80) }}<br>
+            {% for error in form.provincia.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.altura.label }}
+            {{ form.altura}}<br>
+            {% for error in form.altura.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.latitud_gd.label }}
+            {{ form.latitud_gd}}<br>
+            {% for error in form.latitud_gd.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.longitud_gd.label }}
+            {{ form.longitud_gd}}<br>
+            {% for error in form.longitud_gd.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+    {% if station %}
+    <form action="{{ url_for('meteo.delete_station', station_id=station.station_id) }}" method="post" novalidate>
+        <input type="submit" value="Eliminar" />
+    </form>
+    {% endif %}
+{% endblock %}

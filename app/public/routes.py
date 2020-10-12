@@ -60,6 +60,7 @@ def map():
 
     return render_template('index_map.html')
 
+
 @public_bp.route("/p/<string:slug>/", methods=['GET', 'POST'])
 def show_post(slug):
     logger.info('Mostrando un post')

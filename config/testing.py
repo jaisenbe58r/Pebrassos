@@ -22,3 +22,6 @@ DEBUG = True
 APP_ENV = APP_ENV_TESTING
 
 WTF_CSRF_ENABLED = False
+
+SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://admin:1234@localhost:3307/Pebrassos_testing'
+

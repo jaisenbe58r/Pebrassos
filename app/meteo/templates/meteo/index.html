@@ -1,0 +1,11 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+    Pebrassos | Admin
+{% endblock %}
+
+{% block content %}
+    <ul>
+        <li><a href="{{ url_for('meteo.list_weather_stations') }}">Estaciones meteorológicas</a></li>
+    </ul>
+{% endblock %}

@@ -1,8 +1,146 @@
+# version: "3.7"
+# services:
+#   flask:
+#     container_name: flask-pebrassos
+#     build: .
+#     restart: always
+#     environment:
+#       - APP_NAME=MyFlaskApp
+#       - FLASK_APP="entrypoint"
+#       - FLASK_ENV="production"
+#       - APP_SETTINGS_MODULE=config.prod
 
-version: "3"
+#       - MYSQL_USER= "admin"
+#       - MYSQL_PASSWORD= "1234
+#       - MYSQL_HOST= "localhost"
+#       - MYSQL_DATABASE= "Pebrassos"
+#       - MYSQL_PORT=3308
 
+#       - KEY_OWM='16247b8439d1a62601d38844971ccccc'
+
+#     expose:
+#       - 8081
+#   nginx:
+#     container_name: nginx-pebrassos
+#     build: ./nginx
+#     restart: always
+#     ports:
+#       - "8005:80"
+  # db:
+  #   container_name: db-pebrassos
+  #   image: mysql:5.7
+  #   ports:
+  #     - "32001:3308"
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #   volumes:
+  #     - ./db:/docker-entrypoint-initdb.d/:ro
+
+
+# Author: Mazhar Ahmed, CTO, Oceanize Inc
+# All rights reserved. Copyright (c) Oceanize Inc
+version: '3'
 services:
-  ml-fastapi-model:
-    build: .
+  flask:
+    expose:
+      - 8081
+    image: oceanize/flask_app:latest
+    container_name: flask_app1
+    restart: unless-stopped
+    labels:
+      project: "flask"
+      day: "9 Sep 2019"
+    build:
+      # build the image from Dockerfile
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      # set database, memcached etc credentials
+      DB_HOST: mysql
+      DB_NAME: Pebrassos
+      DB_USER: flask
+      DB_PASSWORD: slimdingo85
+
+      APP_NAME: MyFlaskApp
+      FLASK_APP: entrypoint
+      FLASK_ENV: production
+      APP_SETTINGS_MODULE: config.prod
+
+      # MYSQL_USER: admin
+      # MYSQL_PASSWORD: 1234
+      # MYSQL_HOST: mysql
+      # MYSQL_DATABASE: Pebrassos
+      # MYSQL_PORT: 3306
+
+      MYSQL_USER: flask
+      MYSQL_PASSWORD: slimdingo85
+      MYSQL_HOST: mysql
+      MYSQL_DATABASE: flask
+      MYSQL_PORT: 3306
+
+
+      KEY_OWM: 16247b8439d1a62601d38844971ccccc
+
+    volumes:
+      - .:/app
+    links:
+      # network connection with these services
+      - mysql
+    depends_on:
+      # build those images first
+      - mysql
+    # ports:
+    #   # bind on our 5000 port because most people have 80, 8080 already bound
+    #   - "5000:5000"
+
+  nginx:
+    container_name: nginx-pebrassos
+    build: ./nginx
+    restart: always
     ports:
-      - "$PORT:$PORT" 
+      - "8009:80"
+
+
+  mysql:
+    container_name: flask_mysql
+    # let's grab from mysql 5.7 image
+    image: mysql:5.7
+    volumes:
+        # pass volume named mysql-data to mysql container
+      - ./db:/docker-entrypoint-initdb.d/:ro
+      - mysql-data:/var/lib/mysql
+    restart: unless-stopped
+    labels:
+      project: "flask"
+      day: "9 Sep 2019"
+    ports:
+      - "3306:3306"
+    environment:
+      # credentials
+      MYSQL_ROOT_PASSWORD: slimdingo85
+      MYSQL_DATABASE: flask
+      MYSQL_USER: flask
+      MYSQL_PASSWORD: slimdingo85
+
+  phpmyadmin:
+    depends_on:
+      - mysql
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: flask_phpmyadmin
+    restart: unless-stopped
+    labels:
+      project: "flask"
+      day: "9 Sep 2019"
+    ports:
+      - "5010:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: flask
+      PMA_PASSWORD: slimdingo85
+      MYSQL_ROOT_PASSWORD: slimdingo85
+
+# volumes definition here
+volumes:
+  # just a persistance data
+  mysql-data:
+    driver: local

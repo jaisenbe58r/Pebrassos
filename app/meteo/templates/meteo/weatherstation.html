@@ -1,0 +1,23 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+        {{station_id}}: {{data["Location_name"]}}
+{% endblock %}
+
+{% block content %}
+    <li>
+        <a href="{{ url_for('meteo.update_station_form', station_id=station_id) }}">Modificar estación metereológica</a>
+    </li>
+    <li>
+        <a href="{{ url_for('meteo.database_hist_station', station_id=station_id) }}">Histórico estación metereológica</a>
+    </li>
+    <h3> Datos meteorológicos actuales</h3>
+    <ul>
+    {% for key in data %}
+        <li>
+            <a>{{ key }} : {{ data[key] }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}

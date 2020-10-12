@@ -1,0 +1,15 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+        {{station_id}}
+{% endblock %}
+
+{% block content %}
+
+    <h3> Datos meteorológicos actuales</h3>
+
+    <ul>
+    {{ table }}
+    </ul>
+
+{% endblock %}

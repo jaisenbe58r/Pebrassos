@@ -1,0 +1,38 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+    Estaciones meteorológicas
+{% endblock %}
+
+{% block content %}
+    <div>
+        <a href="{{ url_for('meteo.station_form') }}">Añadir estación metereológica</a>
+    </div>
+    <h3>Listado de estaciones meteorológicas</h3>
+
+    <ul>
+    {% for meteo in meteo_pagination.items %}
+        <li>
+            <a href="{{ url_for('meteo.database_station', station_id=meteo.station_id) }}">
+                {{ meteo.station_id }}: {{ meteo.municipio }} - {{ meteo.provincia }}
+            </a>
+        </li>
+    {% else %}
+        <li>No hay entradas</li>
+    {% endfor %}
+    </ul>
+
+    <div class=pagination>
+    {%- for page in meteo_pagination.iter_pages() %}
+        {% if page %}
+            {% if page != meteo_pagination.page %}
+                <a href="{{ url_for('meteo.list_weather_stations', page=page) }}">{{ page }}</a>
+            {% else %}
+                <strong>{{ page }}</strong>
+            {% endif %}
+        {% else %}
+            <span class=ellipsis>…</span>
+        {% endif %}
+    {%- endfor %}
+    </div>
+{% endblock %}

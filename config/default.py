@@ -23,6 +23,7 @@ MEDIA_DIR = join(BASE_DIR, 'media')
 POSTS_IMAGES_DIR = join(MEDIA_DIR, 'posts')
 
 SECRET_KEY = '7110c8ae51a4b5af97be6534caef90e4bb9bdcb3380af008f90b23a5d1616bf319bc298105da20fe'
+KEY_OWM = '16247b8439d1a62601d38844971ccccc'
 
 # Database configuration
 SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -45,4 +46,6 @@ ADMINS = ('juanjo@j2logo.com', )
 MAIL_USE_TLS = True
 MAIL_DEBUG = False
 
-ITEMS_PER_PAGE = 3
+ITEMS_PER_PAGE = 20
+# 1 hour
+SCHEDULER_SAVE_METEO = 1
