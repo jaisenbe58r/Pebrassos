@@ -2,11 +2,13 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <h2>{% block title %}{% endblock %}</h2>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for("static", filename="base.css") }}">
 </head>
 
 <body>
+
 <div>
     <ul class="user-info">
         <a href="{{ url_for('public.index') }}">Home | </a>
@@ -26,6 +28,11 @@
         {% endif %}
     </ul>
 </div>
+
+<a href="{{ url_for('public.index') }}">
+<img src="/static/img/Pebrassos.jpg" alt="Logotipo Pebrassos">
+</a>
+
 {% block content %}{% endblock %}
 </body>
 </html>
