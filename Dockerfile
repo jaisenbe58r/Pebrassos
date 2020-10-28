@@ -1,7 +1,7 @@
 # Dockerfile-flask
 # We simply inherit the Python 3 image. This image does
 # not particularly care what OS runs underneath
-FROM python:3
+FROM python:3.8
 RUN apt -qq -y update \
 	&& apt -qq -y upgrade
 RUN python -m pip install --upgrade pip
@@ -19,7 +19,7 @@ WORKDIR $APP
 # Python dependencies
 COPY requirements.txt .
 # Install Python dependencies
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 # We copy the rest of the codebase into the image
 COPY . .
 # Finally, we run uWSGI with the ini file we
