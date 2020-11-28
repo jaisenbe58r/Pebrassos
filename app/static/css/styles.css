@@ -1,0 +1,15 @@
+
+/* Globales*/
+.contenedor{
+    max-width: 1200px;
+    margin: 0 auto 0 auto;
+}
+
+
+.site-header.inicio {
+    background-image: url(../img/header.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    min-height: 60rem;
+}

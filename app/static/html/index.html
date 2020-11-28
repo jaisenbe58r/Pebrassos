@@ -1,8 +1,8 @@
-{% extends "base_template.html" %}
+<!-- {% extends "base_template.html" %} 
 
 {% block title %}Pebrassos{% endblock %}
 
-{% block content %}
+{% block content %} -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,133 +11,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pebrassos</title>
+    <link rel="stylesheet" href="/app/static/css/styles.css">
 </head>
 <body>
- 
-    <a href="nosotros.html">Nosotros</a>
-    <a href="blog.html">Blog</a>
-    <a href="contacto.html">Contacto</a>
 
-<h1>Localizador de zonas de recoleción de setas basado en modelos predictivos de IA</h1>
 
-     <img src="/app/static/img/Pebrassos.jpg" alt="">
+<header class="site-header inicio">
+    <div class="contenedor">
+        <div class="barra">
+                <nav>
+                    <a href="index.html">
+                        <img src="/app/static/img/Pebrassos.jpg" alt="Logo Pebrassos"> 
+                    </a>
+                        <a href="nosotros.html">Nosotros</a>
+                        <a href="miespacio.html">Mi Espacio</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="contacto.html">Contacto</a>
+                </nav>
+        </div>
+        <h1>Localizador de zonas de recoleción de setas basado en modelos predictivos de IA</h1>
+    </div> <!-- Contenedor -->
+</header>
+
+<section>
 
      <h2>Más sobre nosotros</h2>
 
+     <div>
+        <img src="/app//static/img/icono1.jpg" alt="Icono Inteligencia Artificial">
+        <h3>Inteligencia Artificial</h3>
+            <p>Consectetur adipisicing elit. Asperiores quidem, veniam deleniti neque quia ipsum omnis est, facere fugiat harum doloremque.
+            Dolores architecto quaerat corrupti perferendis excepturi non rem! Possimus.</p>
+     </div>
 
-    <img src="/app//static/img/icono1.jpg" alt="Icono Inteligencia Artificial">
-
-    
-     <h3>Inteligencia Artificial</h3>
-
+     <div>
+        <img src="/app/static/img/icono2.jpg" alt="Data Analysis">    
+        <h3>Data Analysis</h3>
         <p>Consectetur adipisicing elit. Asperiores quidem, veniam deleniti neque quia ipsum omnis est, facere fugiat harum doloremque.
-         Dolores architecto quaerat corrupti perferendis excepturi non rem! Possimus.</p>
-     
-
-    <img src="/app/static/img/icono2.jpg" alt="Data Analysis">    
-    <h3>Data Analysis</h3>
-
-    <p>Consectetur adipisicing elit. Asperiores quidem, veniam deleniti neque quia ipsum omnis est, facere fugiat harum doloremque.
-        Dolores architecto quaerat corrupti perferendis excepturi non rem! Possimus.</p>
-    
-
-    <img src="/app/static/img/icono3.jpg" alt="Datos Metereológicos">    
-    <h3> Datos Metereológicos</h3>
-
-    <p>Consectetur adipisicing elit. Asperiores quidem, veniam deleniti neque quia ipsum omnis est, facere fugiat harum doloremque.
-        Dolores architecto quaerat corrupti perferendis excepturi non rem! Possimus.</p>
-    
-
-<h2>Análisis de datos de las estaciones meteorógicas</h2>
-
-
-    <h3>Análisis datos meteorológicos Valencia</h3>
-
-        <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>
-
-    <a href="{{ url_for('meteo.database_station', station_id="8416Y") }}">Ver Datos | </a>
-    <a href="{{ url_for('meteo.database_hist_station', station_id="8416Y") }}">Histórico</a>
-
-    <h3>Análisis datos meteorológicos Castellón</h3>
-
-        <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>
-
-    <a href="{{ url_for('meteo.database_station', station_id="9563X") }}">Ver Datos | </a>
-    <a href="{{ url_for('meteo.database_hist_station', station_id="9563X") }}">Histórico</a>
-
-
-    <h3>Análisis datos meteorológicos Teruel</h3>
-
-        <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>
-        
-    <a href="{{ url_for('meteo.database_station', station_id="8368U") }}">Ver Datos | </a>
-    <a href="{{ url_for('meteo.database_hist_station', station_id="8368U") }}">Histórico</a>
-
-
-<h2>Encuentra las mejores zonas de recoleción</h2>
-
-<p>Introduce tus zonas de interés para recibir informes de predicción </p>
-
-<a href="{{ url_for('public.map') }}">Mapa </a>
-
-
-<h3>Nuestro blog</h3>
-
-
-<img src="/app/static/img/blog1.jpg" alt="">
-
-<h4>Condicionantes</h4>
-
-    <ul>
-    {% for post in post_pagination.items %}
-        <li>
-            <a href="{{ url_for('public.show_post', slug=post.title_slug) }}">
-                {{ post.title }} <span class="blogDate">({{ post.created|datetime }})</span>
-            </a>
-        </li>
-    {% else %}
-        <li>No hay entradas</li>
-    {% endfor %}
-    </ul>
-
-    <div class=pagination>
-        {%- for page in post_pagination.iter_pages() %}
-            {% if page %}
-                {% if page != post_pagination.page %}
-                    <a href="{{ url_for('public.index', page=page) }}">{{ page }}</a>
-                {% else %}
-                    <strong>{{ page }}</strong>
-                {% endif %}
-            {% else %}
-                <span class=ellipsis>…</span>
-            {% endif %}
-        {%- endfor %}
+            Dolores architecto quaerat corrupti perferendis excepturi non rem! Possimus.</p>
     </div>
 
+    <div>
+        <img src="/app/static/img/icono3.jpg" alt="Datos Metereológicos">    
+        <h3> Datos Metereológicos</h3>
+        <p>Consectetur adipisicing elit. Asperiores quidem, veniam deleniti neque quia ipsum omnis est, facere fugiat harum doloremque.
+            Dolores architecto quaerat corrupti perferendis excepturi non rem! Possimus.</p>
+    </div>
+
+</section>
+
+
+<main>
+        <h2>Análisis de datos de las estaciones meteorógicas</h2>
+
+        <div>
+            <img src="/app/static/img/DatosMEtereologicos.jpg" alt="Datos meteorológicos">
+            <h3>Análisis datos meteorológicos Valencia</h3>
+            <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>
+            <a href="{{ url_for('meteo.database_station', station_id="8416Y") }}">Ver Datos | </a>
+            <a href="{{ url_for('meteo.database_hist_station', station_id="8416Y") }}">Histórico</a>
+        </div>
+
+        <div>
+            <img src="/app/static/img/DatosMEtereologicos.jpg" alt="Datos meteorológicos">
+            <h3>Análisis datos meteorológicos Castellón</h3>
+            <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>
+            <a href="{{ url_for('meteo.database_station', station_id="9563X") }}">Ver Datos | </a>
+            <a href="{{ url_for('meteo.database_hist_station', station_id="9563X") }}">Histórico</a>
+        </div>
+
+        <div>
+            <img src="/app/static/img/DatosMEtereologicos.jpg" alt="Datos meteorológicos">
+            <h3>Análisis datos meteorológicos Teruel</h3>
+            <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>   
+            <a href="{{ url_for('meteo.database_station', station_id="8368U") }}">Ver Datos | </a>
+            <a href="{{ url_for('meteo.database_hist_station', station_id="8368U") }}">Histórico</a>
+        </div>
+
+</main>
+
+
+<section>
+
+    <h2>Encuentra las mejores zonas de recoleción</h2>
+    <p>Introduce tus zonas de interés para recibir informes de predicción </p>
+    <a href="{{ url_for('public.map') }}">Mapa </a>
+
+</section>
+
+
+
+<section>
+    <h3>Nuestro blog</h3>
     
-<img src="/app/static/img/blog2.jpg" alt="">
+    <article>
+        <img src="/app/static/img/blog1.jpg" alt="Entrada de blog">
+        <h4>Condicionantes</h4>
+            <ul>
+            {% for post in post_pagination.items %}
+                <li>
+                    <a href="{{ url_for('public.show_post', slug=post.title_slug) }}">
+                        {{ post.title }} <span class="blogDate">({{ post.created|datetime }})</span>
+                    </a>
+                </li>
+            {% else %}
+                <li>No hay entradas</li>
+            {% endfor %}
+            </ul>
 
-<h4>Imprescindibles</h4>
+            <div class=pagination>
+                {%- for page in post_pagination.iter_pages() %}
+                    {% if page %}
+                        {% if page != post_pagination.page %}
+                            <a href="{{ url_for('public.index', page=page) }}">{{ page }}</a>
+                        {% else %}
+                            <strong>{{ page }}</strong>
+                        {% endif %}
+                    {% else %}
+                        <span class=ellipsis>…</span>
+                    {% endif %}
+                {%- endfor %}
+            </div>   
+    </article>
 
-    <p>Escrito el:  <em>20/10/2020 </em> por: <em> Admin</p></em>
-    <p>Accesorios imprescindibles que no deben falta para la recolección</p>
-    
-
-<h3>Testimoniales</h3>
-
-<blockquote>
-
-    La primea página web que he encontrado con información útil, 
-    tanto de datos meteorógicos y condiciones ambientales como de 
-    zonas de recoleción con tratamiento de datos. Brutal.
-
-</blockquote>
-
-<p>Mariano R.</p>
-
-<p>Todos los derechos reservados 2020 &copy;;</p>
+    <article>
+        <img src="/app/static/img/blog2.jpg" alt="Entrada de blog">
+        <h4>Imprescindibles</h4>
+        <p>Escrito el:  <em>20/10/2020 </em> por: <em> Admin</p></em>
+        <p>Accesorios imprescindibles que no deben falta para la recolección</p>
+    </article>
+</section>
 
 
+<section>
+    <h3>Testimoniales</h3>
+
+        <blockquote>
+            La primea página web que he encontrado con información útil, 
+            tanto de datos meteorógicos y condiciones ambientales como de 
+            zonas de recoleción con tratamiento de datos. Brutal.
+        </blockquote>
+    <p>Mariano R.</p>
+</section>
+
+
+    <footer>
+        <nav>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="miespacio.html">Mi Espacio</a>
+        <a href="blog.html">Blog</a>
+        <a href="contacto.html">Contacto</a>
+        </nav>
+        <p>Todos los derechos reservados 2020 &copy;;</p>
+    </footer>
 
 </body>
 </html>
