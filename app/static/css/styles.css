@@ -5,11 +5,24 @@
     margin: 0 auto 0 auto;
 }
 
-
+/*Header*/
 .site-header.inicio {
     background-image: url(../img/header.jpg);
     background-position: center center;
     background-size: cover;
     height: 100vh;
-    min-height: 60rem;
+    min-height: 600px;
+}
+
+.barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Navegación*/
+
+.navegacion{
+color: white;
+
 }
