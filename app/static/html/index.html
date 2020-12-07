@@ -40,7 +40,7 @@
 
 <section class="contenedor seccion">
 
-     <h2>Más sobre nosotros</h2>
+     <h2 class="fw-300 centrar-texto">Más Sobre Nosotros</h2>
        
      <div class="iconos-nosotros"> 
             <div class="icono">
@@ -68,33 +68,50 @@
 </section>
 
 
-<main>
-        <h2>Análisis de datos de las estaciones meteorógicas</h2>
+<main class="seccion contenedor">
+        <h2 class="fw-300 centrar-texto"></h2class>Análisis de datos de las estaciones meteorógicas</h2>
 
-        <div>
-            <img src="/app/static/img/DatosMEtereologicos.jpg" alt="Datos meteorológicos">
-            <h3>Análisis datos meteorológicos Valencia</h3>
-            <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>
-            <a href="{{ url_for('meteo.database_station', station_id="8416Y") }}">Ver Datos | </a>
-            <a href="{{ url_for('meteo.database_hist_station', station_id="8416Y") }}">Histórico</a>
+        <div class="contenedor-anuncios">
+            <div class="anuncio">
+                <img src="/app/static/img/DatosMEtereologicos.jpg" alt="Datos meteorológicos">
+               
+
+                <div class="contenido-anuncio">
+                    <h3> Datos Valencia</h3>
+                    <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>
+                    <a href="{{ url_for('meteo.database_station', station_id="class="boton boton-amarillo" 8416Y") }}">Ver Datos</a>
+                    <a href="{{ url_for('meteo.database_hist_station', station_id=" class="boton boton-amarillo" 8416Y") }}">Histórico</a>
+                </div> 
+            </div>
+
+            <div class="anuncio">
+                <img src="/app/static/img/DatosMEtereologicos.jpg" alt="Datos meteorológicos">
+                
+
+                <div class="contenido-anuncio">
+                    <h3>Datos Castellón</h3>
+                    <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>
+                    <a href="{{ url_for('meteo.database_station', station_id="class="boton boton-amarillo" 9563X") }}">Ver Datos | </a>
+                    <a href="{{ url_for('meteo.database_hist_station', station_id="class="boton boton-amarillo" 9563X") }}">Histórico</a>
+                </div>
+            </div>
+
+            <div class="anuncio">
+                <img src="/app/static/img/DatosMEtereologicos.jpg" alt="Datos meteorológicos">
+                
+
+                <div class="contenido-anuncio">
+                    <h3>Datos Teruel</h3>
+                    <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>   
+                    <a href="{{ url_for('meteo.database_station', station_id="class="boton boton-amarillo" 8368U") }}">Ver Datos | </a>
+                    <a href="{{ url_for('meteo.database_hist_station', station_id="class="boton boton-amarillo" 8368U") }}">Histórico</a>
+                </div>
+            </div>
+        
         </div>
-
-        <div>
-            <img src="/app/static/img/DatosMEtereologicos.jpg" alt="Datos meteorológicos">
-            <h3>Análisis datos meteorológicos Castellón</h3>
-            <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>
-            <a href="{{ url_for('meteo.database_station', station_id="9563X") }}">Ver Datos | </a>
-            <a href="{{ url_for('meteo.database_hist_station', station_id="9563X") }}">Histórico</a>
+        <div class="ver-todas">
+            <a href="anuncios.html" class="boton boton-verde">Ver Todas</a>
         </div>
-
-        <div>
-            <img src="/app/static/img/DatosMEtereologicos.jpg" alt="Datos meteorológicos">
-            <h3>Análisis datos meteorológicos Teruel</h3>
-            <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>   
-            <a href="{{ url_for('meteo.database_station', station_id="8368U") }}">Ver Datos | </a>
-            <a href="{{ url_for('meteo.database_hist_station', station_id="8368U") }}">Histórico</a>
-        </div>
-
 </main>
 
 
