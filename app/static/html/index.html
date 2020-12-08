@@ -79,8 +79,7 @@
                 <div class="contenido-anuncio">
                     <h3> Datos Valencia</h3>
                     <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>
-                    <a href="{{ url_for('meteo.database_station', station_id="class="boton boton-amarillo" 8416Y") }}">Ver Datos</a>
-                    <a href="{{ url_for('meteo.database_hist_station', station_id=" class="boton boton-amarillo" 8416Y") }}">Histórico</a>
+                    <a href="{{ url_for('meteo.database_station', station_id="class="boton boton-amarillo d-block " 8416Y") }}">Ver Datos</a>
                 </div> 
             </div>
 
@@ -91,8 +90,7 @@
                 <div class="contenido-anuncio">
                     <h3>Datos Castellón</h3>
                     <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>
-                    <a href="{{ url_for('meteo.database_station', station_id="class="boton boton-amarillo" 9563X") }}">Ver Datos | </a>
-                    <a href="{{ url_for('meteo.database_hist_station', station_id="class="boton boton-amarillo" 9563X") }}">Histórico</a>
+                    <a href="{{ url_for('meteo.database_station', station_id="class="boton boton-amarillo d-block" 9563X") }}">Ver Datos</a>
                 </div>
             </div>
 
@@ -103,8 +101,7 @@
                 <div class="contenido-anuncio">
                     <h3>Datos Teruel</h3>
                     <p>El Análisis de datos es un proceso de inspección, depuración, transformación y modelización de datos con el objetivo de descubrir información útil, fundamentar las conclusiones y apoyar la toma de decisiones. </p>   
-                    <a href="{{ url_for('meteo.database_station', station_id="class="boton boton-amarillo" 8368U") }}">Ver Datos | </a>
-                    <a href="{{ url_for('meteo.database_hist_station', station_id="class="boton boton-amarillo" 8368U") }}">Histórico</a>
+                    <a href="{{ url_for('meteo.database_station', station_id="class="boton boton-amarillo d-block" 8368U") }}">Ver Datos</a>
                 </div>
             </div>
         
@@ -115,82 +112,69 @@
 </main>
 
 
-<section>
-
-    <h2>Encuentra las mejores zonas de recoleción</h2>
-    <p>Introduce tus zonas de interés para recibir informes de predicción </p>
-    <a href="{{ url_for('public.map') }}">Mapa </a>
-
+<section class="imagen-contacto">
+    <div class="contenedor contenido-contacto">
+        <h2>Encuentra las mejores zonas de recoleción</h2>
+        <p>Introduce tus zonas de interés para recibir informes de predicción</p>
+        <a href="miespacio.html" class="boton boton-amarillo">Mapa de zonas</a>
+    </div>
 </section>
 
+<div class="seccion-inferior contenedor seccion">
+    <section class="blog">
+        <h3 class="centrar-texto fw-300">Nuestro Blog</h3>
 
+        <article class="entrada-blog">
+            <div class="imagen">
+                <img src="/app/static/img/blog1.jpg" alt="Entrada de blog">
+            </div>
+            <div class="texto-entrada">
+                <a href="entrada.html">
+                    <h4>Condicionantes</h4>
+                </a>
+                <p>Escrito el: <span> 20/10/2019 </span> por: <span> Admin </span> </p>
+                <p>Consejos para identificar las mejores zonas de recolección</p>
+            </div>
+        </article>
 
-<section>
-    <h3>Nuestro blog</h3>
-    
-    <article>
-        <img src="/app/static/img/blog1.jpg" alt="Entrada de blog">
-        <h4>Condicionantes</h4>
-            <ul>
-            {% for post in post_pagination.items %}
-                <li>
-                    <a href="{{ url_for('public.show_post', slug=post.title_slug) }}">
-                        {{ post.title }} <span class="blogDate">({{ post.created|datetime }})</span>
-                    </a>
-                </li>
-            {% else %}
-                <li>No hay entradas</li>
-            {% endfor %}
-            </ul>
+        <article class="entrada-blog">
+            <div class="imagen">
+                <img src="/app/static/img/blog2.jpg"alt="Entrada de blog">
+            </div>
+            <div class="texto-entrada">
+                <a href="entrada.html">
+                    <h4>imprescindibles</h4>
+                </a>
+                <p>Escrito el: <span> 20/10/2019 </span> por: <span> Admin </span> </p>
+                <p>Accesorios imprescindibles que no deben faltar para la recolección</p>
+            </div>
+        </article>
+    </section>
 
-            <div class=pagination>
-                {%- for page in post_pagination.iter_pages() %}
-                    {% if page %}
-                        {% if page != post_pagination.page %}
-                            <a href="{{ url_for('public.index', page=page) }}">{{ page }}</a>
-                        {% else %}
-                            <strong>{{ page }}</strong>
-                        {% endif %}
-                    {% else %}
-                        <span class=ellipsis>…</span>
-                    {% endif %}
-                {%- endfor %}
-            </div>   
-    </article>
+    <section class="testimoniales">
+        <h3 class="centrar-texto fw-300">Testimoniales</h3>
+        <div class="testimonial">
+            
+            <blockquote>
+                La primea página web con información útil, datos meteorógicos, condiciones ambientales y un mapa con zonas de recoleción. Brutal.            
+            </blockquote>
+            <p>- Juan De la torre</p>
+        </div>
+    </section>
 
-    <article>
-        <img src="/app/static/img/blog2.jpg" alt="Entrada de blog">
-        <h4>Imprescindibles</h4>
-        <p>Escrito el:  <em>20/10/2020 </em> por: <em> Admin</p></em>
-        <p>Accesorios imprescindibles que no deben falta para la recolección</p>
-    </article>
-</section>
+</div>
+ 
 
-
-<section>
-    <h3>Testimoniales</h3>
-
-        <blockquote>
-            La primea página web que he encontrado con información útil, 
-            tanto de datos meteorógicos y condiciones ambientales como de 
-            zonas de recoleción con tratamiento de datos. Brutal.
-        </blockquote>
-    <p>Mariano R.</p>
-</section>
-
-
-    <footer>
-        <nav>
-        <a href="nosotros.html">Nosotros</a>
-        <a href="miespacio.html">Mi Espacio</a>
-        <a href="blog.html">Blog</a>
-        <a href="contacto.html">Contacto</a>
+<footer class="site-footer seccion">
+    <div class="contenedor contenedor-footer">
+        <nav class="navegacion">
+            <a href="nosotros.html">Nosotros</a>
+            <a href="anuncios.html">Anuncios</a>
+            <a href="blog.html">Blog</a>
+            <a href="contacto.html">Contacto</a>
         </nav>
-        <p>Todos los derechos reservados 2020 &copy;;</p>
-    </footer>
-
+        <p class="copyright">Todos los Derechos Reservados 2019 &copy; </p>
+    </div>
+</footer>
 </body>
 </html>
-
-
-{% endblock %}
