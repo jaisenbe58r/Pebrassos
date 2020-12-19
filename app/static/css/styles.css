@@ -86,7 +86,7 @@ h4 {
 
 /* Header */
 .site-header {
-    background-color: #333333;
+    background-color:#8e8888;
     padding: 1rem 0 3rem 0;
 }
 .site-header.inicio {
@@ -329,7 +329,7 @@ h4 {
 }
 /** Footer **/
 .site-footer {
-    background-color: #333333;
+    background-color: #8e8888;
     margin: 0;
 }
 .contenedor-footer {
