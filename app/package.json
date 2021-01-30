@@ -1,0 +1,26 @@
+{
+  "name": "pebrassos",
+  "version": "1.0.0",
+  "description": "Web basada en modelos de predicción de IA",
+  "main": "holanode.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint static/js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosmahiques/Pebrassos.git"
+  },
+  "author": "pebrassos team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosmahiques/Pebrassos/issues"
+  },
+  "homepage": "https://github.com/carlosmahiques/Pebrassos#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0"
+  }
+}
